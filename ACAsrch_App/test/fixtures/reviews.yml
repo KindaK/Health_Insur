@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: MyString
+  membership_yr: 1
+  state: MyString
+  coverage: MyString
+  statement: MyText
+
+two:
+  company: MyString
+  membership_yr: 1
+  state: MyString
+  coverage: MyString
+  statement: MyText

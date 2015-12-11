@@ -1,0 +1,44 @@
+
+<h1> ACA Search </h1>
+
+<div class="row">
+	<div class="col-xs-9">
+		<%= geo_chart @searches.group(:country).count %>
+	</div>
+</div>
+
+<div class="jumbotron">
+<p>The aim of ACA Search application is to help people to easily compare insurance cost. Based on user input ACA Search  displays available health insurance providers with the out of pocket fees (i.e., monthly premiums, physician visit copay, and prescription drug copay). <%= link_to 'Learn more about ACA Search', searches_about_path %>. </p>
+
+<%= form_tag '/', method: :get do %>
+	<%= search_field_tag :q, params[:q], placeholder: "State" %>
+	<%= submit_tag "State Included?" %>
+<% end %>
+
+<h2> Premium </h2>
+<p>The amount that must be paid for your health insurance or plan. You and/or your employer usually pay it monthly, quarterly or yearly. (Source: www.healthcare.gov/glossary/premium/)</p>
+
+<h2> Copay </h2>
+<p>Also known as copayment is the fixed amount (for example, $15) the insurered pays for a covered health care service, usually when charged and paid when the service is rendered. The amount can vary by the type of covered health care service. (Source: www.healthcare.gov/glossary/premium/)</p>
+
+<h2> Coverage Type / Metal Category </h2>
+<p>Plans in the Health Insurance Marketplace are presented in 4 "metal” categories: Bronze, Silver, Gold, and Platinum. 
+	Generally, plans in the Bronze category have the lowest premiums (your monthly insurance bill) but the highest deductibles and other out-of-pocket costs.
+Platinum plans generally have the highest premiums but the lowest deductibles and other out-of-pocket costs.
+If you qualify for cost-sharing reductions based on your income and enroll in a Silver plan, you can get the best of both worlds: A fairly low premium, plus a lower deductible and other out-of-pocket costs. Your “total costs of care” include your premium, your deductible, and other out-of-pocket costs. Find out how to use total costs of care to pick a category and plan that work for you.(Source: https://www.healthcare.gov/choose-a-plan/plans-categories/)</p>
+
+<h2> States Included in ACA Search </h2>
+<p>ACA Search only includes health insurance provider information for the 34 states using Federally-Facilitated Marketplaces (27) or State-Partnership Marketplaces (7).</p>
+
+</div>
+
+<div class="container">
+<div class="grids">
+	<div class="row">
+	  <div class="clearfix visible-xs-block"></div>
+	  <% @searches.each do |search| %>
+	 <div class="col-xs-6 col-sm-3"> <h3><%= link_to search.state, searches_new_path(search.id) %></h3> </div>
+	 <% end %>
+	</div>
+</div>
+</div>

@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ACAsrchApp</title>
+  
+  	  <%= javascript_include_tag 'application' %>
+  	  <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+      <%= stylesheet_link_tag 'http://yandex.st/bootstrap/3.1.1/css/bootstrap.min.css' %>
+      <%= javascript_include_tag 'http://yandex.st/bootstrap/3.1.1/js/bootstrap.min.js' %>
+  
+	  <%= csrf_meta_tags %>
+</head>
+
+  <body>
+  	
+	<div class="container">
+			  <ul class="nav nav-tabs">
+				 <% if user_signed_in? %>
+					<li>Hello <%= current_user.name %></li>
+						<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+				 <% else %>
+					<li><%= link_to 'Sign in', new_user_session_path %></li>
+					<li><%= link_to 'Sign up', new_user_registration_path %></li>
+				 <% end %> 
+				 <li><%= link_to 'Reviews', reviews_show_path %></li>
+			 </ul>
+<strong>For 2016 health insurance coverage, the open enrollment period is November 1, 2015 - January 31, 2016.</strong>
+		<div class="container">
+			 <%= yield %>
+		</div>
+	</div>
+
+  </body>
+ 
+</html>

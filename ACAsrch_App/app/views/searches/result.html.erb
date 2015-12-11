@@ -1,0 +1,64 @@
+
+<h1><%=link_to 'ACA Search', root_path %></h1>
+
+<h1>Insurance Company Search Results</h1>
+<hr>
+<% @results.each do |result| %>
+	<h3><%= result["county"] %>, <%= result["state"] %></h3>
+	<p><strong> Plan Name: </strong><%= result["plan_marketing_name"] %></p>
+	<p><strong> Metal Level: </strong><%= result["metal_level"] %></p>
+
+<strong> Premium Adult Individual </strong>
+
+	<p><strong> Age 21: $</strong><%= result["premium_adult_individual_age_21"] %></p>
+	<p><strong> Age 27: $</strong><%= result["premium_adult_individual_age_27"] %></p>
+	<p><strong> Age 30: $</strong><%= result["premium_adult_individual_age_30"] %></p>
+	<p><strong> Age 40: $</strong><%= result["premium_adult_individual_age_40"] %></p>
+	<p><strong> Age 50: $</strong><%= result["premium_adult_individual_age_50"] %></p>
+	<p><strong> Age 60: $</strong><%= result["premium_adult_individual_age_60"] %></p>
+
+<p><strong> Drug Deductible Individual Standard: $ </strong><%= result["drug_deductible_individual_standard"] %></p>
+
+<strong> Premium Couple </strong>
+	<p><strong> Age 21: $</strong><%= result["premium_couple_21"] %></p>
+	<p><strong> Age 30: $</strong><%= result["premium_couple_30"] %></p>
+	<p><strong> Age 40: $</strong><%= result["premium_couple_40"] %></p>
+	<p><strong> Age 50: $</strong><%= result["premium_couple_50"] %></p>
+	<p><strong> Age 60: $</strong><%= result["premium_couple_60"] %></p>
+
+<strong> Premium Couple with One Child </strong>
+	<p><strong> Age 21: $</strong><%= result["couple_1_child_age_21"] %></p>
+	<p><strong> Age 30: $</strong><%= result["couple_1_child_age_21"] %></p>
+	<p><strong> Age 40: $</strong><%= result["couple_1_child_age_40"] %></p>
+	<p><strong> Age 50: $</strong><%= result["couple_1_child_age_50"] %></p>
+	<p><strong> Age 60: $</strong><%= result["couple_1_child_age_60"] %></p>
+
+
+<strong> Premium Couple with Two Children</strong>
+	<p><strong> Age 21: $</strong><%= result["couple_2_child_age_21"] %></p>
+	<p><strong> Age 30: $</strong><%= result["couple_2_child_age_21"] %></p>
+	<p><strong> Age 40: $</strong><%= result["couple_2_child_age_40"] %></p>
+	<p><strong> Age 50: $</strong><%= result["couple_2_child_age_50"] %></p>
+	<p><strong> Age 60: $</strong><%= result["couple_2_child_age_60"] %></p>
+
+<strong> Premium Couple with Three Children</strong>
+	<p><strong> Age 21: $</strong><%= result["couple_3_child_age_21"] %></p>
+	<p><strong> Age 30: $</strong><%= result["couple_3_child_age_21"] %></p>
+	<p><strong> Age 40: $</strong><%= result["couple_3_child_age_40"] %></p>
+	<p><strong> Age 50: $</strong><%= result["couple_3_child_age_50"] %></p>
+	<p><strong> Age 60: $</strong><%= result["couple_3_child_age_60"] %></p>
+
+	<p><strong> Drug Deductible Family Standard: $</strong><%= result["drug_deductible_family_standard"] %></p>
+	
+	
+<p><strong> Summary of Benefits URL: </strong><%= link_to 'View Summary of Benefits', result["summary_of_benefits_url"] %></p>
+
+<% end %>
+
+<div class="container">
+	<ul class="nav nav-tabs">
+		<li><%= link_to 'Search Again', new_search_path %></li>
+		<li><%= link_to 'Reviews', reviews_new_path %></li>
+		<li><%= link_to 'ACA Search Home', root_path %></li>
+	</ul>
+</div>

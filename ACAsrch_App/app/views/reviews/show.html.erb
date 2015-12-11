@@ -1,0 +1,13 @@
+
+<h2>ACA Search Member Insurance Company Reviews</h2>
+
+<p>
+	<p><%= @review.company %> | <%= @review.membership_yr %></p>
+	<p><%= @review.state %></p>
+	<p><%= @review.coverage %></p>
+	<p><%= @review.statement %></p>
+</p>
+
+<ul class="nav nav-tabs">
+	<li><%= link_to 'ACA Search Home', root_path %></li> <li><%= link_to 'Search Again', new_search_path %></li>
+</ul>
