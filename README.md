@@ -4,7 +4,7 @@ ACA Search
 ACA Search is in development. The aim of ACA Search application is to help people to easily compare insurance cost for ACA approved health insurance policies.
 
 Deployment Instructions
-* view ACA search indevacasearch.herokuapp.com
+* view ACA search at indevacasearch.herokuapp.com
 
 Features:
 
