@@ -17,6 +17,9 @@ Features:
 	- Bootstrap-Sass
 	- Active_Median 
 
+Deployment Instructions
+* view ACA search indevacasearch.herokuapp.com
+
 To Dos:
 * Edit map to show U.S. only
 * Add additional search parameters
@@ -25,7 +28,3 @@ To Dos:
 * List counties based on state selected in new search form
 * Prepopulate search form with state selected/searched on frontpage
 * Only show results for variables with values 
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
