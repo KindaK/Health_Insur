@@ -3,14 +3,13 @@ ACA Search
 
 ACA Search is in development. The aim of ACA Search application is to help people to easily compare insurance cost for ACA approved health insurance policies.
 
-Deployment Instructions
-* view ACA search at indevacasearch.herokuapp.com
+Deployment Instructions:
+ View ACA search at indevacasearch.herokuapp.com
 
 Features:
-
 Search
-
-- API - Database
+- API 
+- Database
 
 User accounts
 
@@ -22,4 +21,7 @@ Associations - three models are associated
 
 Additional Ruby Gems
 
-- Chartkick - Devise - Bootstrap-Sass - Active_Median
+- Chartkick 
+- Devise 
+- Bootstrap-Sass 
+- Active_Median
