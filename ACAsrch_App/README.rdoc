@@ -24,7 +24,7 @@ To Dos:
 * Edit map to show U.S. only
 * Add additional search parameters
 	- determine method to search premium value not exact amount &$where=premium_adult_individual_age_21< user selected value
-* Format results in table for easy comparison
+* Format results in table for easy comparison - DONE
 * List counties based on state selected in new search form
 * Prepopulate search form with state selected/searched on frontpage
 * Only show results for variables with values 

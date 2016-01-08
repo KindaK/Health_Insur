@@ -7,7 +7,8 @@ Features:
 
 Search
 
-- API - Database
+- API 
+- Database
 
 User accounts
 
@@ -19,4 +20,7 @@ Associations - three models are associated
 
 Additional Ruby Gems
 
-- Chartkick - Devise - Bootstrap-Sass - Active_Median
+- Chartkick 
+- Devise 
+- Bootstrap-Sass 
+- Active_Median

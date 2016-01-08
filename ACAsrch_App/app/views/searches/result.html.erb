@@ -1,59 +1,243 @@
-
 <h1><%=link_to 'ACA Search', root_path %></h1>
 
 <h1>Insurance Company Search Results</h1>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
 <hr>
-<% @results.each do |result| %>
-	<h3><%= result["county"] %>, <%= result["state"] %></h3>
-	<p><strong> Plan Name: </strong><%= result["plan_marketing_name"] %></p>
-	<p><strong> Metal Level: </strong><%= result["metal_level"] %></p>
+<body>
 
-<strong> Premium Adult Individual </strong>
+ 
 
-	<p><strong> Age 21: $</strong><%= result["premium_adult_individual_age_21"] %></p>
-	<p><strong> Age 27: $</strong><%= result["premium_adult_individual_age_27"] %></p>
-	<p><strong> Age 30: $</strong><%= result["premium_adult_individual_age_30"] %></p>
-	<p><strong> Age 40: $</strong><%= result["premium_adult_individual_age_40"] %></p>
-	<p><strong> Age 50: $</strong><%= result["premium_adult_individual_age_50"] %></p>
-	<p><strong> Age 60: $</strong><%= result["premium_adult_individual_age_60"] %></p>
+<div class="container">
+	<ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" href="#premiumadultindividual"> Premium Adult Individual </a></li>
+		<li><a data-toggle="tab" href="#premiumcouple"> Premium Couple </a></li>
+		<li><a data-toggle="tab" href="#premiumcouplewithonechild"> Premium Couple with One Child </a></li>
+		<li><a data-toggle="tab" href="#premiumcouplewithtwochildren"> Premium Couple with Two Children </a></li>
+		<li><a data-toggle="tab" href="#premiumcouplewiththreechildren"> Premium Couple with Three Children </a></li>
+	</ul>
 
-<p><strong> Drug Deductible Individual Standard: $ </strong><%= result["drug_deductible_individual_standard"] %></p>
+<div class="tab-content">
 
-<strong> Premium Couple </strong>
-	<p><strong> Age 21: $</strong><%= result["premium_couple_21"] %></p>
-	<p><strong> Age 30: $</strong><%= result["premium_couple_30"] %></p>
-	<p><strong> Age 40: $</strong><%= result["premium_couple_40"] %></p>
-	<p><strong> Age 50: $</strong><%= result["premium_couple_50"] %></p>
-	<p><strong> Age 60: $</strong><%= result["premium_couple_60"] %></p>
+ <div id="premiumadultindividual" class="tab-pane fade in active">
+  <h3>Premium Adult Individual</h3>
+  <p>
+  <div class="containter">
+  <div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+      <th> Plan Name </th>
+      <th> Metal Level </th> 
+      <th> Age 21</th>
+      <th> Age 27</th>
+      <th> Age 30</th>
+      <th> Age 40</th>
+      <th> Age 50</th>
+      <th> Age 60</th>
+      <th> Drug Deductible Individual Standard </th>
+      <th> Summary of Benefits URL </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each do |result| %>
+      <tr>
+        <td><%= result["plan_marketing_name"] %></td>
+        <td><%= result["metal_level"] %></td>
+        <td>$<%= result["premium_adult_individual_age_21"] %></td>
+        <td>$<%= result["premium_adult_individual_age_27"] %></td>
+        <td>$<%= result["premium_adult_individual_age_30"] %></td>
+        <td>$<%= result["premium_adult_individual_age_40"] %></td>
+        <td>$<%= result["premium_adult_individual_age_50"] %></td>
+        <td>$<%= result["premium_adult_individual_age_60"] %></td>
+        <td><%= result["drug_deductible_individual_standard"] %></td>
+        <td><%= link_to 'View Summary of Benefits', result["summary_of_benefits_url"] %></td>
+      </tr>
+    </tbody>
+  <% end %>
+  </table>
+  </div>
+  </div>
+  </p>
+ </div>
 
-<strong> Premium Couple with One Child </strong>
-	<p><strong> Age 21: $</strong><%= result["couple_1_child_age_21"] %></p>
-	<p><strong> Age 30: $</strong><%= result["couple_1_child_age_21"] %></p>
-	<p><strong> Age 40: $</strong><%= result["couple_1_child_age_40"] %></p>
-	<p><strong> Age 50: $</strong><%= result["couple_1_child_age_50"] %></p>
-	<p><strong> Age 60: $</strong><%= result["couple_1_child_age_60"] %></p>
+ <div id="premiumcouple" class="tab-pane fade">
+  <h3>Premium Couple</h3>
+  <p>
+  <div class="containter">
+  <div class="table-responsive">
+  <table class="table table-striped">
+   <thead>
+      <tr>
+      <th> Plan Name </th>
+      <th> Metal Level </th> 
+      <th> Age 21 </th>
+      <th> Age 30 </th>
+      <th> Age 40 </th>
+      <th> Age 50 </th>
+      <th> Age 60 </th>
+      <th> Drug Deductible Family Standard </th>
+      <th> Summary of Benefits URL </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each do |result| %>
+      <tr>
+        <td><%= result["plan_marketing_name"] %></td>
+        <td><%= result["metal_level"] %></td>
+        <td>$<%= result["premium_couple_21"] %></p>
+        <td>$<%= result["premium_couple_30"] %></td>
+        <td>$<%= result["premium_couple_40"] %></td>
+        <td>$<%= result["premium_couple_50"] %></td>
+        <td>$<%= result["premium_couple_60"] %></td>
+        <td><%= result["drug_deductible_family_standard"] %></td>
+        <td><%= link_to 'View Summary of Benefits', result["summary_of_benefits_url"] %></td>
+      </tr>
+    </tbody>
+  <% end %>
+  </table>
+  </div>
+  </div>
+  </p>
+ </div>
+
+ <div id="premiumcouplewithonechild" class="tab-pane fade">
+ 	<h3>Premium Couple with One Child</h3>
+ 	<p>
+ 	<div class="container">
+ 	<div class="table-responsive">
+ 	<table class="table table-striped">
+ 	  <thead>
+ 	  	<tr>
+ 	  	  <th> Plan Name </th>
+          <th> Metal Level </th> 
+          <th> Age 21 </th>
+      	  <th> Age 30 </th>
+          <th> Age 40 </th>
+          <th> Age 50 </th>
+          <th> Age 60 </th>
+ 	  	  <th> Drug Deductible Family Standard </th>
+          <th> Summary of Benefits URL </th>
+ 	  	</tr>
+ 	  </thead>
+ 	  <tbody>
+      <% @results.each do |result| %>
+ 	  	 <tr>
+ 	  	   <td><%= result["plan_marketing_name"] %></td>
+         <td><%= result["metal_level"] %></td>
+ 	  	   <td>$<%= result["couple_1_child_age_21"] %></td>
+		     <td>$<%= result["couple_1_child_age_30"] %></td>
+		     <td>$<%= result["couple_1_child_age_40"] %></td>
+	       <td>$<%= result["couple_1_child_age_50"] %></td>
+	       <td>$<%= result["couple_1_child_age_60"] %></td>
+ 	  	   <td><%= result["drug_deductible_family_standard"] %></td>
+         <td><%= link_to 'View Summary of Benefits', result["summary_of_benefits_url"] %></td>
+ 	  	</tr>
+ 	  </tbody>
+  <% end %>
+ 	</table>
+ 	</div>
+ 	</div>
+ 	</p>
+ </div>
+
+ <div id="premiumcouplewithtwochildren" class="tab-pane fade">
+ 	<h3>Premium Couple with Two Children</h3>
+ 	<p>
+ 	<div class="container">
+ 	<div class="table-responsive">
+ 	<table class="table table-striped">
+ 	  <thead>
+ 	    <tr>
+ 	      <th> Plan Name </th>
+          <th> Metal Level </th> 
+          <th> Age 21 </th>
+      	  <th> Age 30 </th>
+          <th> Age 40 </th>
+          <th> Age 50 </th>
+          <th> Age 60 </th>
+ 	  	    <th> Drug Deductible Family Standard </th>
+          <th> Summary of Benefits URL </th>
+ 	    </tr>
+ 	  </thead>
+ 	  <tbody>
+      <% @results.each do |result| %>
+ 	  	<tr>
+ 	  	  <td><%= result["plan_marketing_name"] %></td>
+        <td><%= result["metal_level"] %></td>
+ 	  	  <td>$<%= result["couple_2_child_age_21"] %></td>
+		    <td>$<%= result["couple_2_child_age_30"] %></td>
+		    <td>$<%= result["couple_2_child_age_40"] %></td>
+		    <td>$<%= result["couple_2_child_age_50"] %></td>
+		    <td>$<%= result["couple_2_child_age_60"] %></td>
+		    <td><%= result["drug_deductible_family_standard"] %></td>
+        <td><%= link_to 'View Summary of Benefits', result["summary_of_benefits_url"] %></td>
+ 	    </tr>
+ 	  </tbody>
+  <% end %>
+ 	</table>
+ 	</div>
+ 	</div>	
+ 	</p>
+ </div>
+
+ <div id="premiumcouplewiththreechildren" class="tab-pane fade">
+ 	<h3>Premium Couple with Three Children</h3>
+ 	<p>
+ 	<div class="container">
+ 	<div class="table-responsive">
+ 	<table class="table table-striped">
+ 	   <thead>
+         <tr>
+          <th> Plan Name </th>
+          <th> Metal Level </th> 
+          <th> Age 21 </th>
+      	  <th> Age 30 </th>
+          <th> Age 40 </th>
+          <th> Age 50 </th>
+          <th> Age 60 </th>
+ 	  	    <th> Drug Deductible Family Standard </th>
+          <th> Summary of Benefits URL </th>
+         </tr>
+ 	   </thead>
+ 	   <tbody>
+        <% @results.each do |result| %>
+          <tr>
+          <td><%= result["plan_marketing_name"] %></td>
+          <td><%= result["metal_level"] %></td>
+ 	  	    <td>$<%= result["couple_2_child_age_21"] %></td>
+		  	  <td>$<%= result["couple_2_child_age_30"] %></td>
+		  	  <td>$<%= result["couple_2_child_age_40"] %></td>
+		  	  <td>$<%= result["couple_2_child_age_50"] %></td>
+		      <td>$<%= result["couple_2_child_age_60"] %></td>
+		  	  <td><%= result["drug_deductible_family_standard"] %></td>
+          <td><%= link_to 'View Summary of Benefits', result["summary_of_benefits_url"] %></td>
+         </tr>
+ 	   </tbody>
+  <% end %>
+ 	</table>
+ 	</div>
+ 	</div>
+ 	</p>
+ </div>
 
 
-<strong> Premium Couple with Two Children</strong>
-	<p><strong> Age 21: $</strong><%= result["couple_2_child_age_21"] %></p>
-	<p><strong> Age 30: $</strong><%= result["couple_2_child_age_21"] %></p>
-	<p><strong> Age 40: $</strong><%= result["couple_2_child_age_40"] %></p>
-	<p><strong> Age 50: $</strong><%= result["couple_2_child_age_50"] %></p>
-	<p><strong> Age 60: $</strong><%= result["couple_2_child_age_60"] %></p>
+</div>
+</body>
+</html>
 
-<strong> Premium Couple with Three Children</strong>
-	<p><strong> Age 21: $</strong><%= result["couple_3_child_age_21"] %></p>
-	<p><strong> Age 30: $</strong><%= result["couple_3_child_age_21"] %></p>
-	<p><strong> Age 40: $</strong><%= result["couple_3_child_age_40"] %></p>
-	<p><strong> Age 50: $</strong><%= result["couple_3_child_age_50"] %></p>
-	<p><strong> Age 60: $</strong><%= result["couple_3_child_age_60"] %></p>
-
-	<p><strong> Drug Deductible Family Standard: $</strong><%= result["drug_deductible_family_standard"] %></p>
-	
-	
-<p><strong> Summary of Benefits URL: </strong><%= link_to 'View Summary of Benefits', result["summary_of_benefits_url"] %></p>
-
-<% end %>
 
 <div class="container">
 	<ul class="nav nav-tabs">
@@ -62,3 +246,4 @@
 		<li><%= link_to 'ACA Search Home', root_path %></li>
 	</ul>
 </div>
+
